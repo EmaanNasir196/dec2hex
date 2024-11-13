@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'openjdk:11'
+            args '-v /var/jenkins_home:/var/jenkins_home'
+        }
+    }
     
     stages {
         stage('Checkout') {
@@ -10,9 +15,6 @@ pipeline {
         
         stage('Compile') {
             steps {
-                // Install wget
-                sh 'apt-get update && apt-get install -y wget'
-
                 // Download JUnit and Hamcrest if not present
                 sh '''
                     if [ ! -f junit-4.13.2.jar ]; then
