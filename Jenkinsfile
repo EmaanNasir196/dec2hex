@@ -10,6 +10,9 @@ pipeline {
         
         stage('Compile') {
             steps {
+                // Install wget
+                sh 'apt-get update && apt-get install -y wget'
+
                 // Download JUnit and Hamcrest if not present
                 sh '''
                     if [ ! -f junit-4.13.2.jar ]; then
@@ -63,4 +66,3 @@ pipeline {
         }
     }
 }
-
