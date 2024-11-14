@@ -50,7 +50,7 @@ pipeline {
                             -Dsonar.projectKey=dec2hex \
                             -Dsonar.sources=. \
                             -Dsonar.java.binaries=. \
-                            -Dsonar.host.url=http://98.81.211.176:9000
+                            -Dsonar.host.url=http://100.26.51.149:9000
                         """
                     }
                 }
